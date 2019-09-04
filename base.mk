@@ -149,6 +149,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     asus-motor
 
+# Soong
+PRODUCT_SOONG_NAMESPACES += \
+    device/phh/treble
+
 # Privapp-permissions whitelist for PhhTrebleApp
 PRODUCT_COPY_FILES += \
 	device/phh/treble/privapp-permissions-me.phh.treble.app.xml:system/etc/permissions/privapp-permissions-me.phh.treble.app.xml
