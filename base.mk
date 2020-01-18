@@ -156,3 +156,10 @@ PRODUCT_SOONG_NAMESPACES += \
 # Privapp-permissions whitelist for PhhTrebleApp
 PRODUCT_COPY_FILES += \
 	device/phh/treble/privapp-permissions-me.phh.treble.app.xml:system/etc/permissions/privapp-permissions-me.phh.treble.app.xml
+
+# Fingerprint
+PRODUCT_COPY_FILES += \
+    vendor/revengeos/config/permissions/vendor.lineage.biometrics.fingerprint.inscreen.xml:system/etc/permissions/vendor.lineage.biometrics.fingerprint.inscreen.xml
+
+PRODUCT_PACKAGES += \
+    lineage.biometrics.fingerprint.inscreen@1.0-service.lenovo
