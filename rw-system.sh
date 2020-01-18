@@ -127,6 +127,7 @@ changeKeylayout() {
         cp /system/phh/lenovo-synaptics_dsx.kl /mnt/phh/keylayout/synaptics_dsx.kl
         chmod 0644 /mnt/phh/keylayout/synaptics_dsx.kl
         changed=true
+        setprop persist.sys.phh.dt2w_evnode /sys/devices/virtual/touch/tp_dev/gesture_on
     fi
 
     if [ "$changed" = true ]; then
@@ -491,13 +492,6 @@ if [ -c /dev/dsm ];then
     chcon u:object_r:teecd_data_file_system:s0 /data/sec_storage_data
     mount /data/sec_storage_data /sec_storage
 fi
-
-#Try to detect DT2W
-for ev in $(cd /sys/class/input;echo event*);do
-	if [ -f "/sys/class/input/$ev/device/device/gesture_mask" ];then
-		setprop persist.sys.phh.dt2w_evnode /dev/input/$ev
-	fi
-done
 
 has_hostapd=false
 for i in odm oem vendor product;do
